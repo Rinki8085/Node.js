@@ -1,0 +1,24 @@
+{
+    "employee": [
+      {
+        "id": "98287",
+        "fname": "John",
+        "lname": "Michale"
+      },
+      {
+        "id": "542",
+        "fname": "John",
+        "lname": "Michale"
+      },
+      {
+        "id": "56666",
+        "fname": "John",
+        "lname": "sharma"
+      },
+      {
+        "id": "29162",
+        "fname": "John",
+        "lname": "sharma"
+      }
+    ]
+  }
