@@ -1,27 +1,11 @@
 const express = require('express');
 const app = express();
 const port = 8200;
-
-var employee = [ {
-    "id": "98287",
-    "fname": "John",
-    "lname": "Michale"
-  },
-  {
-    "id": "542",
-    "fname": "John",
-    "lname": "Michale"
-  },
-  {
-    "id": "56666",
-    "fname": "John",
-    "lname": "sharma"
-  },
-  {
-    "id": "29162",
-    "fname": "John",
-    "lname": "sharma"
-  }]
+const mongo = require('mongodb');
+const MongoClient = mongo.MongoClient();
+const mongourl = "mongodb://localhost:27017"
+let db;
+let coll_name ="category";
 
 //get
 app.get('/', (req, res) => {
@@ -29,8 +13,19 @@ app.get('/', (req, res) => {
 })
 
 //employee
-app.get('/employee', (req, res) => {
-    res.send(employee)
+app.get('/category', (req, res) => {
+    db.collection(coll_name).find().toArray((err,result)=>{
+      if(err) throw err;
+      res.send(result);
+    })
+})
+
+MongoClient.connect(mongourl,(err,client) =>{
+  if(err) console.log("Error While Connecting");
+  db = client.db("document");
+  app.listen(port,()=>{
+    console.log(`listening on port no ${port}`);
+  });
 })
 
 app.listen(port,() =>{
