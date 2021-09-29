@@ -1,24 +1,43 @@
-{
-    "employee": [
+db.document.insert(
       {
-        "id": "98287",
-        "fname": "John",
-        "lname": "Michale"
+          "id":1,
+          "city": "Bengaluru"
       },
       {
-        "id": "542",
-        "fname": "John",
-        "lname": "Michale"
+          "id":2,
+          "city":"Goa"
       },
       {
-        "id": "56666",
-        "fname": "John",
-        "lname": "sharma"
+          "id":3,
+          "city":"Lucknow"
       },
       {
-        "id": "29162",
-        "fname": "John",
-        "lname": "sharma"
+          "id":4,
+          "city":"Manali"
+      },
+      {
+          "id":5,
+          "city":"Jaipur"
+      },
+      {
+          "id":6,
+          "city":"Dubai"
+      },
+      {
+          "id":7,
+          "city":"Singapore"
+  
+      },
+      {
+          "id":8,
+          "city":"Ahemdabad"
+      },
+      {
+          "id":9,
+          "city":"Kanyakumari"
+      },
+      {
+          "id":10,
+          "city":"Bodhgaya"
       }
-    ]
-  }
+  )
