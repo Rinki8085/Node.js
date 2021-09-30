@@ -22,12 +22,12 @@ app.get('/location',(req,res) =>{
 })
 
 //List all restaurants
-/*app.get('/restaurent',(req,res) =>{
+app.get('/restaurent',(req,res) =>{
     db.collection('restaurent').find().toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
-})*/
+})
 
 //List restaurants wrt to city
 // params example
@@ -40,7 +40,7 @@ app.get('/location',(req,res) =>{
 })*/
 
 // query example
-app.get('/restaurant',(req,res) =>{
+app.get('/restaurants',(req,res) =>{
     var query = {}
     if(req.query.cityId){
         query={city:req.query.cityId}
