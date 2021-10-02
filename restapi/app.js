@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv')
 dotenv.config()
-const port = process.env.PORT||8000;
+const port = process.env.PORT||8210;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 //const mongourl = "mongodb://localhost:27017"
@@ -22,8 +22,8 @@ app.get('/location',(req,res) =>{
 })
 
 //List all restaurants
-app.get('/restaurent',(req,res) =>{
-    db.collection('restaurent').find().toArray((err,result)=>{
+app.get('/restaurant',(req,res) =>{
+    db.collection("restaurant").find().toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
@@ -40,14 +40,14 @@ app.get('/restaurent',(req,res) =>{
 })*/
 
 // query example
-app.get('/restaurants',(req,res) =>{
+app.get('/restaurant',(req,res) =>{
     var query = {}
     if(req.query.cityId){
         query={city:req.query.cityId}
     }else if(req.query.mealtype){
         query={"type.mealtype":req.query.mealtype}
     }
-    db.collection('restaurent').find(query).toArray((err,result)=>{
+    db.collection('restaurant').find(query).toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
@@ -73,7 +73,7 @@ app.get('/filter/:mealType',(req,res) => {
         var hcost = Number(req.query.hcost);
         query={$and:[{cost:{$gt:lcost,$lt:hcost}}],"type.mealtype":mealType}
     }
-    db.collection('restaurent').find(query).toArray((err,result)=>{
+    db.collection('restaurant').find(query).toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
