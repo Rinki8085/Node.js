@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 //const mongourl = "mongodb://localhost:27017"
-const mongourl = "mongodb+srv://local:test1234@cluster0.f8vmc.mongodb.net/eduaug?retryWrites=true&w=majority"
+const mongourl = "mongodb+srv://document:rk123456@cluster0.gfit3.mongodb.net/eduaug?retryWrites=true&w=majority"
 var db;
 //get
 app.get('/',(req,res) => {
@@ -27,8 +27,8 @@ app.get('/location',(req,res) =>{
 })
 
 //List all restaurants
-app.get('/restaurants',(req,res) =>{
-    db.collection('restaurents').find().toArray((err,result)=>{
+app.get('/restaurant',(req,res) =>{
+    db.collection('restaurant').find().toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
@@ -42,7 +42,7 @@ app.get('/restaurant',(req,res) =>{
     }else if(req.query.mealtype){
         query={"type.mealtype":req.query.mealtype}
     }
-    db.collection('restaurents').find(query).toArray((err,result)=>{
+    db.collection('restaurant').find(query).toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
@@ -96,7 +96,7 @@ app.get('/quicksearch',(req,res) =>{
 // restaurant Details
 app.get('/details/:id',(req,res) => {
     var id = req.params.id
-    db.collection('restaurents').find({_id:id}).toArray((err,result)=>{
+    db.collection('restaurant').find({_id:id}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })

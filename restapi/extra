@@ -1,14 +1,10 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-Parser');
 const dotenv = require('dotenv')
 dotenv.config()
 const port = process.env.PORT||8210;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-// to receive data from form
-app.use(bodyParser.urlencoded({extended:true})) 
-app.use(bodyParser.json());
 //const mongourl = "mongodb://localhost:27017"
 const mongourl = "mongodb+srv://document:rk123456@cluster0.gfit3.mongodb.net/eduaug?retryWrites=true&w=majority";
 var db;
@@ -96,23 +92,6 @@ app.get('/details/:id',(req,res) => {
         res.send(result)
     })
     */
-})
-
-//place order by
-app.post('/placeOrder',(req,res)=>{
-    console.log(req.body)
-    db.collection('order').insert(req.body,(err,result)=>{
-        if(err) throw err;
-        res.send("Order Placed")
-    })
-})
-
-//restaurants Details
-app.get('/viewOrder',(req,res) => {
-    db.collection('order').find({_id:id}).toArray((err,result)=>{
-        if(err) throw err;
-        res.send(result)
-    })
 })
 
 //List all QuickSearches
