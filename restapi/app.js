@@ -109,10 +109,56 @@ app.post('/placeOrder',(req,res)=>{
 
 //restaurants Details
 app.get('/viewOrder',(req,res) => {
-    db.collection('order').find({_id:id}).toArray((err,result)=>{
+    var query = {}
+    if(req.query.email){
+        query = {email: req.query.email}
+    }
+    db.collection('order').find().toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
+})
+
+app.get('/viewOrder/:id',(req,res) => {
+    var email = req.query.email;
+    db.collection('order').find({email:email}).toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+app.delete('/deleteOrder',(req,res) => {
+    db.collection('order').remove({},(err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
+})
+
+app.put('/updateStatus/:id',(req,res) => {
+    var id = mongo.ObjectId(req.params.id)
+    var status = "pending";
+    var statuVal = 2
+    if(req.query.status){
+        var statuVal = Number(req.query.status)
+        if(statuVal == 1){
+            status = 'Accepted'
+        }else if(statuVal == 2){
+            status = 'Rejected'
+        }else{
+            status = 'pending'
+        }
+    }
+    db.collection('order').updateOne(
+        {_id:id},
+        {
+            $set:{
+                "status":status
+            }
+        },(err,result)=>{
+            if(err) throw err;
+            res.send(`Your Order status is ${status}`)
+        }
+    )
 })
 
 //List all QuickSearches
