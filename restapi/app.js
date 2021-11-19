@@ -76,6 +76,7 @@ app.get('/filter/:mealType',(req,res) => {
     }   
     else if(req.query.cuisine){
         query = {"mealTypes.mealtype_id":Number(mealType),"cuisines.cuisine_id":Number(req.query.cuisine) }
+        console.log(query)
        
        //query = {"type.mealtype":mealType,"Cuisine.cuisine":{$in:["1","5"]}}
     }
