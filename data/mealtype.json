@@ -1,32 +1,38 @@
 db.mealType.insertMany([
     {
-       " _id":1,
-        "name": "breakfast",
-        "mealtype":1
+        "mealtype_id": 1,
+        "mealtype": "Breakfast",
+        "content": "Start your day with exclusive breakfast options",
+        "meal_image": "https://i.ibb.co/FVhSTWK/breakfast.jpg"
     },
     {
-        "_id":2,
-        "name": "lunch",
-        "mealtype":2
+        "mealtype_id": 2,
+        "mealtype": "Lunch",
+        "content": "Start your day with exclusive breakfast options",
+        "meal_image": "https://i.ibb.co/8rPxkWP/lunch.jpg"
     },
-     {
-        "_id":3,
-        "name": "dinner",
-        "mealtype":3
+    {
+        "mealtype_id": 3,
+        "mealtype": "Dinner",
+        "content": "Start your day with exclusive breakfast options",
+        "meal_image": "https://i.ibb.co/XjzPqYv/dinner.jpg"
     },
-     {
-        "_id":4,
-        "name": "snacks",
-        "mealtype":4
+    {
+        "mealtype_id": 4,
+        "mealtype": "Snacks",
+        "content": "Start your day with exclusive breakfast options",
+        "meal_image": "https://i.ibb.co/wchCHfb/snacks.jpg"
     },
-     {
-        "_id":5,
-        "name": "drinks",
-        "mealtype":5
+    {
+        "mealtype_id": 5,
+        "mealtype": "Drinks",
+        "content": "Start your day with exclusive breakfast options",
+        "meal_image": "https://i.ibb.co/YR0S6fV/drinks.jpg"
     },
-     {
-        "_id":6,
-        "name": "nightlife",
-        "mealtype":6
+    {
+        "mealtype_id": 6,
+        "mealtype": "NightLife",
+        "content": "Start your day with exclusive breakfast options",
+        "meal_image": "https://i.ibb.co/q1fC2jW/nightlife.jpg"
     }
 ])
